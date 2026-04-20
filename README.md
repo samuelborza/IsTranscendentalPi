@@ -8,7 +8,7 @@ It is, however, also possible to give a direct proof of the transcendence of $\p
 
 ## Project history
 
-This project began as James Huang's final project for the master's course *Formalising Mathematics* in the 2023-2024 academic year, taught by [Prof Kevin Buzzard](https://www.ma.imperial.ac.uk/~buzzard/); see the [*Formalising Mathematics* course notes](https://www.ma.imperial.ac.uk/~buzzard/xena/formalising-mathematics-2024/). The original goal proved too ambitious for the course project alone, but after the end of the course James Huang and [Samuël Borza](https://samuelborza.github.io/) teamed up to rework and complete the formalization. The present repository is the result of this collaboration.
+This project began as [James Huang](https://github.com/ZhidongHuang-James)'s final project for the master's course *Formalising Mathematics* in the 2023-2024 academic year, taught by [Prof Kevin Buzzard](https://www.ma.imperial.ac.uk/~buzzard/); see the [*Formalising Mathematics* course notes](https://www.ma.imperial.ac.uk/~buzzard/xena/formalising-mathematics-2024/). The original goal proved too ambitious for the course project alone, but after the end of the course [James Huang](https://github.com/ZhidongHuang-James) and [Samuël Borza](https://samuelborza.github.io/) teamed up to rework and complete the formalization. The present repository is the result of this collaboration.
 
 ## Sketch of the proof
 
@@ -202,7 +202,7 @@ lake build
 
 ## Authors, License, and Final Comments
 
-James Huang and [Samuël Borza](https://samuelborza.github.io/).
+[James Huang](https://github.com/ZhidongHuang-James) and [Samuël Borza](https://samuelborza.github.io/).
 
 This project is released under the Apache 2.0 license, matching mathlib's license; see `LICENSE`.
 
