@@ -53,10 +53,13 @@ By [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas), the $r$
 ```
 where $e_{n-r}$ denotes the $(n-r)$-th [elementary symmetric polynomial](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial). Note that this coefficient can also be obtained by evaluating the multivariate polynomial
 ```math
-C_r(X_1, \dots, X_d) := (-1)^{N-(k+r)}\, e_{N-(k+r)}\left(\left(\sum_{j \in I} X_j\right)_{I \subseteq \{1,\dots,d\}}\right)
+C_r(X_1, \dots, X_d) := (-1)^{N-(k+r)}\, e_{N-(k+r)}\bigl(\sum_{j \in I} X_j \mid I \subseteq \{1,\dots,d\}\bigr)
 ```
 at $(\beta_1,\dots,\beta_d)$, where
-$N:=\mathrm{card}\left\{ I \subseteq \{1,\dots,d\}\right\} = 2^d$. The polynomial $C_r$ being symmetric, the [fundamental theorem of symmetric polynomials](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial#Fundamental_theorem_of_symmetric_polynomials) implies that $C_r$ can be expressed as a polynomial in the elementary symmetric polynomials
+```math
+N := \mathrm{card}\bigl(\{ I \subseteq \{1,\dots,d\}\}\bigr) = 2^d.
+```
+The polynomial $C_r$ being symmetric, the [fundamental theorem of symmetric polynomials](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial#Fundamental_theorem_of_symmetric_polynomials) implies that $C_r$ can be expressed as a polynomial in the elementary symmetric polynomials
 ```math
 e_1(X_1,\dots,X_d),\ \dots \,e_d(X_1,\dots,X_d).
 ```
