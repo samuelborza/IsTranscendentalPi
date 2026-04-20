@@ -13,102 +13,102 @@ This project began as James Huang's final project for the master's course *Forma
 ## Sketch of the proof
 
 We argue by contradiction, assuming that $\pi$ is algebraic. Then $i\pi$ is algebraic as well, so there exists a monic polynomial $B \in \mathbb{Q}[X]$ such that
-$$
+```math
 B(i\pi)=0.
-$$
+```
 By the [fundamental theorem of algebra](https://en.wikipedia.org/wiki/Fundamental_theorem_of_algebra), we may write
-$$
+```math
 B(X)=\prod_{j=1}^d (X-\beta_j),
-$$
+```
 where $\beta_1,\dots,\beta_d \in \mathbb{C}$ are the roots of $B$, one of which is $i\pi$.
 Since $e^{i\pi}=-1$ by [Euler's identity](https://en.wikipedia.org/wiki/Euler%27s_identity), one obtains
-$$
+```math
 \prod_{j=1}^d (1+e^{\beta_j})=0,
-$$
+```
 and, after expanding this product, one gets
-$$ 
+```math
 \sum_{\substack{I \subseteq \{1,\dots,d\} \\ \sum_{j \in I}\beta_j = 0}} e^{\sum_{j \in I}\beta_j}
 +
 \sum_{\substack{I \subseteq \{1,\dots,d\} \\ \sum_{j \in I}\beta_j \neq 0}} e^{\sum_{j \in I}\beta_j}
 =0.
-$$
+```
 Equivalently,
-$$
-\sum_{i = 1}^n e^{\alpha_i} = -k := -\left(\#\left\{ I \subseteq \{1,\dots,d\} \;\middle|\; \sum_{j \in I}\beta_j = 0 \right\}\right),
-$$
+```math
+\sum_{i = 1}^n e^{\alpha_i} = -k := -\mathrm{card}\left\{ I \subseteq \{1,\dots,d\} \;\middle|\; \sum_{j \in I}\beta_j = 0 \right\},
+```
 where
-$$
+```math
 A=\{\alpha_1,\dots,\alpha_n\}:=\left\{\sum_{j \in I}\beta_j \;\middle|\; I \subseteq \{1,\dots,d\},\ \sum_{j \in I}\beta_j \neq 0\right\}.
-$$
+```
 
 The next step is to package these numbers $\alpha_1,\dots,\alpha_n$ as the roots of a new polynomial $T'$, so that
-$$
+```math
 \prod_{I \subseteq \{1,\dots,d\}}
 \left(X-\sum_{j \in I}\beta_j\right) = X^{k - 1} T'(X) := X^{k} (X - \alpha_1) \cdots (X - \alpha_n).
-$$
+```
 
 By [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas), the $r$-th coefficient of $T'(X)$ is
-$$
+```math
 (-1)^{n-r} e_{n-r}(\alpha_1,\dots,\alpha_n),
-$$
+```
 where $e_{n-r}$ denotes the $(n-r)$-th [elementary symmetric polynomial](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial). Note that this coefficient can also be obtained by evaluating the multivariate polynomial
-$$
+```math
 C_r(X_1, \dots, X_d) := (-1)^{N-(k+r)}\, e_{N-(k+r)}\left(\left(\sum_{j \in I} X_j\right)_{I \subseteq \{1,\dots,d\}}\right)
-$$
+```
 at $(\beta_1,\dots,\beta_d)$, where
-$N:=\#\left\{ I \subseteq \{1,\dots,d\}\right\} = 2^d$. The polynomial $C_r$ being symmetric, the [fundamental theorem of symmetric polynomials](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial#Fundamental_theorem_of_symmetric_polynomials) implies that $C_r$ can be expressed as a polynomial in the elementary symmetric polynomials
-$$
+$N:=\mathrm{card}\left\{ I \subseteq \{1,\dots,d\}\right\} = 2^d$. The polynomial $C_r$ being symmetric, the [fundamental theorem of symmetric polynomials](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial#Fundamental_theorem_of_symmetric_polynomials) implies that $C_r$ can be expressed as a polynomial in the elementary symmetric polynomials
+```math
 e_1(X_1,\dots,X_d),\ \dots \,e_d(X_1,\dots,X_d).
-$$
+```
 Evaluating at $(\beta_1,\dots,\beta_d)$, it follows that $C_r(\beta_1,\dots,\beta_d)$ can be expressed in terms of the elementary symmetric polynomials in the roots of $B$, and hence, by Vieta's formulas, in terms of the coefficients of $B$. Therefore, $T' \in \mathbb{Q}[X]$. By clearing denominators, one obtains an integer polynomial $T \in \mathbb{Z}[X]$ and a nonzero integer $c \in \mathbb{Z}$ such that $T = c\,T'$.
 
 Following Niven, the proof then introduces the auxiliary polynomial
-$$
-F_p(X)=X^{p-1}T(X)^p, \qquad p \in \N \setminus \{0\}.
-$$
+```math
+F_p(X)=X^{p-1}T(X)^p, \qquad p \in \mathbb{N} \setminus \{0\}.
+```
 An integration-by-parts and the previous identity $\sum_j e^{\alpha_j}=-k$ then shows that
-$$
+```math
 c^{np} \sum_{j=1}^n e^{\alpha_j}\int_0^1 \alpha_j e^{-t \alpha_j} F_p(t \alpha_j)\,dt
 =
 -(p-1)!\left(kc^{np} T(0)^p + p\left(kc^{np} G_p(0) + c^{np}\sum_{j=1}^n G_p(\alpha_j)\right)\right).
-$$
+```
 where
-$$
+```math
 G_p := \frac{1}{p!}\sum_{i=p}^{\deg(F_p)} F_p^{(i)}.
-$$
+```
 Since $T \in \mathbb{Z}[X]$, one has $G_p = \sum_{i=p}^{\deg(F_p)} \frac{i!}{p!}\,S_{p,i}$ for some $S_{p,i} \in \mathbb{Z}[X]$, and thus $G_p \in \mathbb{Z}[X]$.
 
 By bounding $F_p(t \alpha_j)$ uniformly for $t\in[0,1]$, and then using $|e^{-t \alpha_j}|\le e^{|\alpha_j|}$ to control the integrand, it follows that for all sufficiently large $p$,
-$$
+```math
 \left\|c^{np}\sum_{j=1}^n e^{\alpha_j}\int_0^1 \alpha_j e^{-t \alpha_j}F_p(t \alpha_j)\,dt\right\|<(p-1)!.
-$$
+```
 
 A contradiction would follow from showing that $c^{np}\sum_{j=1}^n G_p(\alpha_j) \in \mathbb{Z}$. Indeed, in that case the quantity
-$$
+```math
 kc^{np} T(0)^p + p\left(kc^{np} G_p(0) + c^{np}\sum_{j=1}^n G_p(\alpha_j)\right)
-$$
+```
 is also an integer, and in fact a nonzero integer for all sufficiently large prime numbers $p$. If it were zero, then $p$ would divide $k\,c^{np}\,T(0)^p$, and hence would divide $k\,c\,T(0)$. But $k\,c\,T(0)\neq 0$ is a fixed integer, so it can be divisible by only finitely many primes. Therefore, for all sufficiently large prime numbers $p$, one has
-$$
+```math
 \left\|(p-1)!\left(kc^{np} T(0)^p + p\left(kc^{np} G_p(0) + c^{np}\sum_{j=1}^n G_p(\alpha_j)\right)\right)\right\|\geq (p-1)!,
-$$
+```
 contradicting the previous bound.
 
 It remains to show that $c^{np}\sum_{j=1}^n G_p(\alpha_j) \in \mathbb{Z}$. We write
 
-$$
+```math
 c^{np-1}\sum_{j=1}^n G_p(\alpha_j)
 =
 \sum_{i=p}^{\deg(F_p)} \frac{c^{np-1}}{p!}\sum_{j=1}^n F_p^{(i)}(\alpha_j),
-$$
+```
 and introduce the polynomial
-$$
+```math
 R_{p,i}(X_1,\dots,X_n)
 :=
 \sum_{k=0}^{\deg(F_p)}
 c^{\,np-1-k}\,\frac{i!}{p!}\,\bigl[S_{p,i}\bigr]_k\,(X_1^k+\cdots+X_n^k) \in \mathbb{Z}[X].
-$$
+```
 The polynomial $R_{p,i}$ is chosen specifically so that
-$$
+```math
 \begin{aligned}
 R_{p,i}(c \alpha_1,\dots,c \alpha_n)
 &=
@@ -125,23 +125,23 @@ i!\,\bigl[S_{p,i}\bigr]_k\,\alpha_j^k \\
 &=
 \frac{c^{np-1}}{p!}\sum_{j=1}^n F_p^{(i)}(\alpha_j).
 \end{aligned}
-$$
+```
 
 Furthermore, the numbers $c\alpha_1,\dots,c\alpha_n \in \mathbb{C}$ are the roots of the monic polynomial
-$$
+```math
 c^n\,T'(X/c)=X^n+a_{n-1}X^{n-1}+c\,a_{n-2}X^{n-2}+\cdots+c^{n-2}a_1X+c^{n-1}a_0 \in \mathbb{Z}[X],
-$$
+```
 where $T(X)=cX^n+a_{n-1}X^{n-1}+\cdots+a_1X+a_0$.
 
 
 The polynomial $R_{p,i}(X_1,\dots,X_n)$ is clearly symmetric. By the fundamental theorem of symmetric polynomials once again, it can therefore be expressed as a polynomial in the elementary symmetric polynomials in $X_1,\dots,X_n$. Since $(c \alpha_1,\dots,c \alpha_n)$ are the roots of the monic polynomial with integer coefficients introduced above, it follows that $R_{p,i}(c \alpha_1,\dots,c \alpha_n)$ is an integer.
 
 Therefore, we conclude that
-$$
+```math
 c^{np-1}\sum_{j=1}^n G_p(\alpha_j)
 =
 \sum_{i=p}^{\deg(F_p)} R_{p,i}(c \alpha_1,\dots,c \alpha_n) \in \mathbb{Z},
-$$
+```
 and the proof is complete.
 
 
@@ -163,11 +163,7 @@ We briefly explain the role of each file, following the order in which the argum
   Proves the combinatorial-exponential identities coming from $\prod_{j=1}^d (1+e^{\beta_j})$. It defines subset sums and nonzero subset sums, and derives the relation $\sum_{i=1}^n e^{\alpha_i}=-k$ from the root condition $B(i\pi)=0$.
 - `IsTranscendentalPi/CalculusOnPoly.lean`:
 
-  Introduces the integral
-  $
-  \int_0^1 x e^{-tx}T(tx)\,dt
-  $
-  and proves the basic integration-by-parts identity that rewrites it in terms of sums of derivatives of $T$. This is the calculus core that later gets specialized to the auxiliary polynomials $F_p$.
+  Introduces the integral $\int_0^1 x e^{-tx}T(tx)\,dt$ and proves the basic integration-by-parts identity that rewrites it in terms of sums of derivatives of $T$. This is the calculus core that later gets specialized to the auxiliary polynomials $F_p$.
 - `IsTranscendentalPi/NivenPolynomials.lean`:
 
   Introduces Niven's auxiliary polynomials $F_p$, $S_{p,i}$, and $G_p$, and proves their fundamental algebraic properties. In particular, it relates $G_p$ to the higher derivatives of $F_p$ and computes the contribution of roots and root multiplicities to the sums appearing in the main identity.
@@ -221,4 +217,4 @@ in *Proceedings of the 5th ACM SIGPLAN Conference on Certified Programs and Proo
 
 [^Eberl2018]: Manuel Eberl, "The Transcendence of π,"
 *Archive of Formal Proofs* (September 2018),
-\url{https://isa-afp.org/entries/Pi_Transcendental.html}.
+https://isa-afp.org/entries/Pi_Transcendental.html.
