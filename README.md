@@ -43,7 +43,6 @@ A=\{\alpha_1,\dots,\alpha_n\}:=\left\{\sum_{j \in I}\beta_j \;\middle|\; I \subs
 
 The next step is to package these numbers $\alpha_1,\dots,\alpha_n$ as the roots of a new polynomial $T'$, so that
 ```math
-```math
 \prod_{I \subseteq \{1,\dots,d\}}
 \left(X-\sum_{j \in I}\beta_j\right)
 =
