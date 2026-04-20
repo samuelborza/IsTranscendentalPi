@@ -1,3 +1,9 @@
+/-
+Copyright (c) 2026 James Huang and Samuël Borza. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Samuël Borza and James Huang
+-/
+
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
 import Mathlib.Analysis.Calculus.Deriv.Polynomial
 import Mathlib.Algebra.Polynomial.FieldDivision
