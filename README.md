@@ -53,7 +53,7 @@ By [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas), the $r$
 ```
 where $e_{n-r}$ denotes the $(n-r)$-th [elementary symmetric polynomial](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial). Note that this coefficient can also be obtained by evaluating the multivariate polynomial
 ```math
-C_r(X_1, \dots, X_d) := (-1)^{N-(k+r)}\, e_{N-(k+r)}\bigl(\sum_{j \in I} X_j \mid I \subseteq \{1,\dots,d\}\bigr)
+C_r(X_1, \dots, X_d) := (-1)^{N-(k+r)} e_{N-(k+r)}\bigl(\sum_{j \in I} X_j \mid I \subseteq \{1,\dots,d\}\bigr)
 ```
 at $(\beta_1,\dots,\beta_d)$, where
 ```math
@@ -61,9 +61,9 @@ N := \mathrm{card}\bigl(\{ I \subseteq \{1,\dots,d\}\}\bigr) = 2^d.
 ```
 The polynomial $C_r$ being symmetric, the [fundamental theorem of symmetric polynomials](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial#Fundamental_theorem_of_symmetric_polynomials) implies that $C_r$ can be expressed as a polynomial in the elementary symmetric polynomials
 ```math
-e_1(X_1,\dots,X_d),\ \dots \,e_d(X_1,\dots,X_d).
+e_1(X_1,\dots,X_d), \dots e_d(X_1,\dots,X_d).
 ```
-Evaluating at $(\beta_1,\dots,\beta_d)$, it follows that $C_r(\beta_1,\dots,\beta_d)$ can be expressed in terms of the elementary symmetric polynomials in the roots of $B$, and hence, by Vieta's formulas, in terms of the coefficients of $B$. Therefore, $T' \in \mathbb{Q}[X]$. By clearing denominators, one obtains an integer polynomial $T \in \mathbb{Z}[X]$ and a nonzero integer $c \in \mathbb{Z}$ such that $T = c\,T'$.
+Evaluating at $(\beta_1,\dots,\beta_d)$, it follows that $C_r(\beta_1,\dots,\beta_d)$ can be expressed in terms of the elementary symmetric polynomials in the roots of $B$, and hence, by Vieta's formulas, in terms of the coefficients of $B$. Therefore, $T' \in \mathbb{Q}[X]$. By clearing denominators, one obtains an integer polynomial $T \in \mathbb{Z}[X]$ and a nonzero integer $c \in \mathbb{Z}$ such that $T = cT'$.
 
 Following Niven, the proof then introduces the auxiliary polynomial
 ```math
@@ -79,7 +79,7 @@ where
 ```math
 G_p := \frac{1}{p!}\sum_{i=p}^{\deg(F_p)} F_p^{(i)}.
 ```
-Since $T \in \mathbb{Z}[X]$, one has $G_p = \sum_{i=p}^{\deg(F_p)} \frac{i!}{p!}\,S_{p,i}$ for some $S_{p,i} \in \mathbb{Z}[X]$, and thus $G_p \in \mathbb{Z}[X]$.
+Since $T \in \mathbb{Z}[X]$, one has $G_p = \sum_{i=p}^{\deg(F_p)} \frac{i!}{p!}S_{p,i}$ for some $S_{p,i} \in \mathbb{Z}[X]$, and thus $G_p \in \mathbb{Z}[X]$.
 
 By bounding $F_p(t \alpha_j)$ uniformly for $t\in[0,1]$, and then using $|e^{-t \alpha_j}|\le e^{|\alpha_j|}$ to control the integrand, it follows that for all sufficiently large $p$,
 ```math
@@ -90,7 +90,7 @@ A contradiction would follow from showing that $c^{np}\sum_{j=1}^n G_p(\alpha_j)
 ```math
 kc^{np} T(0)^p + p\left(kc^{np} G_p(0) + c^{np}\sum_{j=1}^n G_p(\alpha_j)\right)
 ```
-is also an integer, and in fact a nonzero integer for all sufficiently large prime numbers $p$. If it were zero, then $p$ would divide $k\,c^{np}\,T(0)^p$, and hence would divide $k\,c\,T(0)$. But $k\,c\,T(0)\neq 0$ is a fixed integer, so it can be divisible by only finitely many primes. Therefore, for all sufficiently large prime numbers $p$, one has
+is also an integer, and in fact a nonzero integer for all sufficiently large prime numbers $p$. If it were zero, then $p$ would divide $kc^{np}T(0)^p$, and hence would divide $kcT(0)$. But $kcT(0)\neq 0$ is a fixed integer, so it can be divisible by only finitely many primes. Therefore, for all sufficiently large prime numbers $p$, one has
 ```math
 \left\|(p-1)!\left(kc^{np} T(0)^p + p\left(kc^{np} G_p(0) + c^{np}\sum_{j=1}^n G_p(\alpha_j)\right)\right)\right\|\geq (p-1)!,
 ```
@@ -108,7 +108,7 @@ and introduce the polynomial
 R_{p,i}(X_1,\dots,X_n)
 :=
 \sum_{k=0}^{\deg(F_p)}
-c^{\,np-1-k}\,\frac{i!}{p!}\,\bigl[S_{p,i}\bigr]_k\,(X_1^k+\cdots+X_n^k) \in \mathbb{Z}[X].
+c^{np-1-k}\frac{i!}{p!}\bigl[S_{p,i}\bigr]_k(X_1^k+\cdots+X_n^k) \in \mathbb{Z}[X].
 ```
 The polynomial $R_{p,i}$ is chosen specifically so that
 ```math
@@ -116,15 +116,15 @@ The polynomial $R_{p,i}$ is chosen specifically so that
 R_{p,i}(c \alpha_1,\dots,c \alpha_n)
 &=
 \sum_{k=0}^{\deg(F_p)}
-c^{\,np-1-k}\,\frac{i!}{p!}\,\bigl[S_{p,i}\bigr]_k
+c^{np-1-k}\frac{i!}{p!}\bigl[S_{p,i}\bigr]_k
 \bigl((c \alpha_1)^k+\cdots+(c \alpha_n)^k\bigr) \\
 &=
 \sum_{k=0}^{\deg(F_p)}
-\frac{c^{\,np-1}}{p!}\, i!\,\bigl[S_{p,i}\bigr]_k
+\frac{c^{np-1}}{p!} i!\bigl[S_{p,i}\bigr]_k
 \bigl(\alpha_1^k+\cdots+\alpha_n^k\bigr) \\
 &=
 \frac{c^{np-1}}{p!}\sum_{j=1}^n \sum_{k=0}^{\deg(F_p)}
-i!\,\bigl[S_{p,i}\bigr]_k\,\alpha_j^k \\
+i!\bigl[S_{p,i}\bigr]_k\alpha_j^k \\
 &=
 \frac{c^{np-1}}{p!}\sum_{j=1}^n F_p^{(i)}(\alpha_j).
 \end{aligned}
@@ -132,7 +132,7 @@ i!\,\bigl[S_{p,i}\bigr]_k\,\alpha_j^k \\
 
 Furthermore, the numbers $c\alpha_1,\dots,c\alpha_n \in \mathbb{C}$ are the roots of the monic polynomial
 ```math
-c^n\,T'(X/c)=X^n+a_{n-1}X^{n-1}+c\,a_{n-2}X^{n-2}+\cdots+c^{n-2}a_1X+c^{n-1}a_0 \in \mathbb{Z}[X],
+c^nT'(X/c)=X^n+a_{n-1}X^{n-1}+ca_{n-2}X^{n-2}+\cdots+c^{n-2}a_1X+c^{n-1}a_0 \in \mathbb{Z}[X],
 ```
 where $T(X)=cX^n+a_{n-1}X^{n-1}+\cdots+a_1X+a_0$.
 
