@@ -43,8 +43,13 @@ A=\{\alpha_1,\dots,\alpha_n\}:=\left\{\sum_{j \in I}\beta_j \;\middle|\; I \subs
 
 The next step is to package these numbers $\alpha_1,\dots,\alpha_n$ as the roots of a new polynomial $T'$, so that
 ```math
+```math
 \prod_{I \subseteq \{1,\dots,d\}}
-\left(X-\sum_{j \in I}\beta_j\right) = X^{k - 1} T'(X) := X^{k} (X - \alpha_1) \cdots (X - \alpha_n).
+\left(X-\sum_{j \in I}\beta_j\right)
+=
+X^{k} T'(X)
+=
+X^{k}(X-\alpha_1)\cdots(X-\alpha_n).
 ```
 
 By [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas), the $r$-th coefficient of $T'(X)$ is
