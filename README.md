@@ -38,7 +38,7 @@ Equivalently,
 ```
 where
 ```math
-A=\{\alpha_1,\dots,\alpha_n\}:=\left\{\sum_{j \in I}\beta_j \;\middle|\; I \subseteq \{1,\dots,d\},\ \sum_{j \in I}\beta_j \neq 0\right\}.
+\{\alpha_1,\dots,\alpha_n\}:=\left\{\sum_{j \in I}\beta_j \;\middle|\; I \subseteq \{1,\dots,d\},\ \sum_{j \in I}\beta_j \neq 0\right\}.
 ```
 
 The next step is to package these numbers $\alpha_1,\dots,\alpha_n$ as the roots of a new polynomial $T'$, so that
@@ -65,7 +65,7 @@ N := \mathrm{card}\bigl(\{ I \subseteq \{1,\dots,d\}\}\bigr) = 2^d.
 ```
 The polynomial $C_r$ being symmetric, the [fundamental theorem of symmetric polynomials](https://en.wikipedia.org/wiki/Elementary_symmetric_polynomial#Fundamental_theorem_of_symmetric_polynomials) implies that $C_r$ can be expressed as a polynomial in the elementary symmetric polynomials
 ```math
-e_1(X_1,\dots,X_d), \dots e_d(X_1,\dots,X_d).
+e_1(X_1,\dots,X_d), \dots, e_d(X_1,\dots,X_d).
 ```
 Evaluating at $(\beta_1,\dots,\beta_d)$, it follows that $C_r(\beta_1,\dots,\beta_d)$ can be expressed in terms of the elementary symmetric polynomials in the roots of $B$, and hence, by Vieta's formulas, in terms of the coefficients of $B$. Therefore, $T' \in \mathbb{Q}[X]$. By clearing denominators, one obtains an integer polynomial $T \in \mathbb{Z}[X]$ and a nonzero integer $c \in \mathbb{Z}$ such that $T = cT'$.
 
@@ -179,7 +179,7 @@ We briefly explain the role of each file, following the order in which the argum
   Constructs the polynomial $T'$ whose roots are the nonzero subset sums $\alpha_1,\dots,\alpha_n$ of the roots of $B$. It also proves that $T' \in \mathbb{Q}[X]$, clears denominators to obtain $T \in \mathbb{Z}[X]$, and studies the monic rescaling whose roots are $c\alpha_1,\dots,c\alpha_n$.
 - `IsTranscendentalPi/ScaledAuxiliaryPolynomial.lean`:
 
-  Proves the integrality statement for the scaled sums involving $G_p(\alpha_j)$. It introduces the symmetric polynomials $R_{p,i}$ and shows that evaluating them at $(c\alpha_1,\dots,c\alpha_n)$ yields the terms $\frac{c^{np-1}}{p!}\sum_{j=1}^n F_p^{(i)}(\alpha_j)$, from which one deduces $c^{np-1}\sum_{j=1}^n G_p(\alpha_j)\in\mathbb{Z}$.
+  Proves the integrality statement for the scaled sums involving $G_p(\alpha_j)$. It introduces the symmetric polynomials $R_{p,i}$ and shows that evaluating them at $(c\alpha_1,\dots,c\alpha_n)$ yields the terms $\frac{c^{np-1}}{p!}\sum_{j=1}^n F_p^{(i)}( \alpha_j )$, from which one deduces $c^{np-1}\sum_{j=1}^n G_p(\alpha_j)\in\mathbb{Z}$.
 - `IsTranscendentalPi/AnalyticEstimates.lean`:
 
   Establishes the analytic upper and lower bounds that drive the contradiction. On the one hand, it shows that the scaled integral expression is eventually smaller than $(p-1)!$; on the other hand, it rewrites the same expression as $(p-1)!$ times a nonzero integer for sufficiently large primes.
