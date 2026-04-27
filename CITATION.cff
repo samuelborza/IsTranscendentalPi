@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it as below."
+title: "IsTranscendentalPi: A Lean 4 formalization of the transcendence of π"
+type: software
+authors:
+  - given-names: "Zhidong (James)"
+    family-names: Huang
+  - given-names: "Samuël"
+    family-names: Borza
+repository-code: "https://github.com/samuelborza/IsTranscendentalPi"
+license: "Apache-2.0"
+version: "1.0.0"
+abstract: "A Lean 4 formalization of the transcendence of π, following the self-contained and elegant proof given by Niven in 1939."
+keywords:
+  - Lean
+  - Lean 4
+  - mathlib
+  - formalized mathematics
+  - transcendental number theory
+  - pi
